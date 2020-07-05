@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "apiv1",
     "rest_framework"
+
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,10 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  # 変更
+        'NAME': 'my_project',  # プロジェクトで使用するデータベース名
+        'USER': 'root',  # パソコンにインストールしたMySQLのユーザー名
+        'PASSWORD': '',  # 同上。そのパスワード
     }
 }
 
@@ -105,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
