@@ -1,3 +1,4 @@
+import reversion
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.validators import UnicodeUsernameValidator
@@ -37,6 +38,7 @@ class UserManager(BaseUserManager):
         return self._create_user(username, email, password, **extra_fields)
 
 
+@reversion.register()
 class User(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(
